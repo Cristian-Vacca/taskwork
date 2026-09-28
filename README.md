@@ -27,7 +27,7 @@ El proyecto utiliza una **arquitectura monolítica modular**, organizando el sis
 
 ### Frontend
 
-El frontend será desarrollado con **TypeScript** y estará organizado por módulos funcionales:
+El frontend está desarrollado con **React, TypeScript y Vite**, y se organiza por módulos funcionales. Se utiliza **pnpm** como gestor de paquetes:
 
 ```text
 frontend/
@@ -57,6 +57,22 @@ frontend/
     ├── types/
     └── utils/
 ```
+
+Para iniciar el frontend en desarrollo:
+
+```bash
+cd frontend
+pnpm install
+pnpm dev
+```
+
+Para generar la versión de producción:
+
+```bash
+pnpm build
+```
+
+La pantalla inicial de acceso incluye correo, contraseña, opción para mostrarla y un enlace de recuperación. El envío y la recuperación son demostrativos hasta conectar el backend.
 
 **Módulos principales:**
 
@@ -314,7 +330,9 @@ de primera en la lista de pendientes.
 
 | Componente           | Tecnología         |
 | -------------------- | ------------------ |
-| Frontend             | TypeScript         |
+| Frontend             | React + TypeScript |
+| Bundler              | Vite               |
+| Gestor de paquetes   | pnpm               |
 | Backend              | Python             |
 | Base de datos        | PostgreSQL         |
 | Arquitectura         | Monolítica modular |
