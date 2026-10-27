@@ -9,6 +9,9 @@ class Task(Base):
     title = Column(String, nullable=False)
     description = Column(String, nullable=True)
     completed = Column(Boolean, default=False)
+    priority = Column(String, default="media")
+    due_date = Column(String, nullable=True)
+    due_time = Column(String, nullable=True)
     owner_id = Column(Integer, ForeignKey("users.id"), nullable=False)
 
     owner = relationship("User", back_populates="tasks")
