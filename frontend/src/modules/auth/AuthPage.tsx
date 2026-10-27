@@ -26,7 +26,6 @@ export default function AuthPage() {
     // 1. MODO RECUPERACIÓN DE CONTRASEÑA
     if (isForgot) {
       try {
-        // Estructura lista para cuando el backend implemente el endpoint /auth/forgot-password
         const response = await fetch('http://127.0.0.1:8000/auth/forgot-password', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
@@ -39,7 +38,6 @@ export default function AuthPage() {
             text: 'Te hemos enviado un correo con las instrucciones de recuperación.',
           })
         } else {
-          // Mientras el backend no tenga el endpoint, mostramos confirmación visual
           setNotice({
             kind: 'success',
             text: `Si el correo ${email} está registrado, recibirás un enlace de recuperación pronto.`,
@@ -128,9 +126,9 @@ export default function AuthPage() {
         })
 
         setTimeout(() => {
-          // Intenta redirigir a /dashboard o recargar para refrescar el estado global de auth
-          window.location.href = '/dashboard'
-        }, 1000)
+          // Recarga la aplicación para que App.tsx detecte el token guardado
+          window.location.reload()
+        }, 800)
       } else {
         setNotice({
           kind: 'info',
